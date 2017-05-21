@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.mickamy.qiitaviewer.R;
 import com.mickamy.qiitaviewer.dto.QiitaItem;
 import com.mickamy.qiitaviewer.repository.QiitaRepository;
+import com.mickamy.qiitaviewer.ui.viewer.ViewerActivity;
 
 import java.util.List;
 
@@ -76,6 +76,6 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
 
     @Override
     public void onClickItem(QiitaItem clicked) {
-        Log.d(TAG, "onClickItem: " + clicked.title);
+        startActivity(ViewerActivity.createIntent(this, clicked.url));
     }
 }
