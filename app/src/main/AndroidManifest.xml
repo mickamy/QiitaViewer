@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.result.SearchResultActivity" />
-        <activity android:name=".ui.viewer.ViewerActivity"></activity>
+        <activity
+            android:name=".ui.viewer.ViewerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
