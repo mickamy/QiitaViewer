@@ -22,7 +22,7 @@ public class RetrofitFactory {
 
     public static Retrofit makeRetrofit() {
         return makeRetrofit(
-                HttpUrl.parse("https://qiita/api/v2/"),
+                HttpUrl.parse("https://qiita.com/api/v2/"),
                 OkHttpClientFactory.makeClient(),
                 GsonFactory.makeGson()
         );
