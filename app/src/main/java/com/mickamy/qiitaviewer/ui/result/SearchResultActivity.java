@@ -17,12 +17,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class SearchResultActivity extends AppCompatActivity implements SearchResultController.AdapterCallback {
     @SuppressWarnings("unused")
     private static final String TAG = SearchResultActivity.class.getSimpleName();
 
     private static final String KEY_QUERY = "query";
+
+    private final CompositeDisposable disposable = new CompositeDisposable();
 
     private SearchResultController controller = new SearchResultController(this);
 
@@ -40,15 +43,26 @@ public class SearchResultActivity extends AppCompatActivity implements SearchRes
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         ButterKnife.bind(this);
-
         configureRecycler();
+    }
 
-        QiitaRepository.getInstance().getItems(getIntent().getStringExtra(KEY_QUERY))
+    @Override
+    protected void onResume() {
+        super.onResume();
+        disposable.add(QiitaRepository.getInstance()
+                .getItems(getIntent().getStringExtra(KEY_QUERY))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         this::present,
                         Throwable::printStackTrace
-                );
+                )
+        );
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        disposable.clear();
     }
 
     private void configureRecycler() {
