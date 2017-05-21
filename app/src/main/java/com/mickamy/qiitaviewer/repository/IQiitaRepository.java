@@ -5,6 +5,7 @@ import com.mickamy.qiitaviewer.dto.QiitaItem;
 import java.util.List;
 
 import io.reactivex.Single;
+import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface IQiitaRepository {
@@ -15,6 +16,7 @@ public interface IQiitaRepository {
 
     interface Service {
 
+        @GET("items")
         Single<List<QiitaItem>> getItems(
                 @Query("query") String query
         );
