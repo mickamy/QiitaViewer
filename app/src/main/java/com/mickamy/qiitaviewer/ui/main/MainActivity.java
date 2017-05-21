@@ -1,4 +1,4 @@
-package com.mickamy.qiitaviewer;
+package com.mickamy.qiitaviewer.ui.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,8 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 
-import com.mickamy.qiitaviewer.repository.QiitaRepository;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
+import com.mickamy.qiitaviewer.R;
+import com.mickamy.qiitaviewer.ui.result.SearchResultActivity;
 
 public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
@@ -18,13 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        QiitaRepository.getInstance().getItems("android")
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        response -> Log.d(TAG, "onCreate: " + response),
-                        throwable -> throwable.printStackTrace()
-                );
     }
 
     @Override
