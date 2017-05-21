@@ -31,6 +31,8 @@ public class SearchResultActivity extends LoadableActivity implements SearchResu
 
     private SearchResultController controller = new SearchResultController(this);
 
+    private String query;
+
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
 
@@ -48,6 +50,8 @@ public class SearchResultActivity extends LoadableActivity implements SearchResu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         ButterKnife.bind(this);
+        query = getIntent().getStringExtra(KEY_QUERY);
+        setTitle(query);
         configureRecycler();
     }
 
@@ -55,7 +59,7 @@ public class SearchResultActivity extends LoadableActivity implements SearchResu
     protected void onResume() {
         super.onResume();
         disposable.add(QiitaRepository.getInstance()
-                .getItems(getIntent().getStringExtra(KEY_QUERY))
+                .getItems(query)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(neglected -> enableLoadingView(true))
                 .doFinally(() -> enableLoadingView(false))
