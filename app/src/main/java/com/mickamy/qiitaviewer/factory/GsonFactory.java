@@ -18,7 +18,6 @@ public class GsonFactory {
 
     public static Gson makeGson() {
         return new GsonBuilder()
-        // TODO: 2017/05/21 OffsetDateTime parser
                 .registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeConverter())
                 .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
                 .create();
