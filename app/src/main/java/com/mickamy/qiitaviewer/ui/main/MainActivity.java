@@ -1,4 +1,4 @@
-package com.mickamy.qiitaviewer;
+package com.mickamy.qiitaviewer.ui.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 
+import com.mickamy.qiitaviewer.R;
 import com.mickamy.qiitaviewer.repository.QiitaRepository;
+import com.mickamy.qiitaviewer.ui.result.SearchResultActivity;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 

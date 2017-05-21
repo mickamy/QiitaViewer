@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mickamy.qiitaviewer.SearchResultActivity">
+    tools:context="com.mickamy.qiitaviewer.ui.result.SearchResultActivity"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
 </FrameLayout>
