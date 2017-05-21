@@ -3,7 +3,6 @@ package com.mickamy.qiitaviewer.ui.main;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 
 import com.mickamy.qiitaviewer.R;
@@ -24,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.search, menu);
         SearchView searchView = (SearchView) menu.findItem(R.id.search_menu_search_view).getActionView();
         searchView.setOnQueryTextListener(searchViewListener);
+        searchView.setMaxWidth(Integer.MAX_VALUE);
         return super.onCreateOptionsMenu(menu);
     }
 
     private final SearchView.OnQueryTextListener searchViewListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String query) {
-            Log.d(TAG, "onQueryTextSubmit: " + query);
             startActivity(SearchResultActivity.createIntent(MainActivity.this, query));
             return true;
         }
