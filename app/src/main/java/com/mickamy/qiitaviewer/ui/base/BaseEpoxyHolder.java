@@ -1,4 +1,4 @@
-package com.mickamy.qiitaviewer;
+package com.mickamy.qiitaviewer.ui.base;
 
 import android.support.annotation.CallSuper;
 import android.view.View;
