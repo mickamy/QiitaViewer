@@ -7,10 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 
 import com.mickamy.qiitaviewer.R;
-import com.mickamy.qiitaviewer.repository.QiitaRepository;
 import com.mickamy.qiitaviewer.ui.result.SearchResultActivity;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
 
 public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
@@ -20,13 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        QiitaRepository.getInstance().getItems("android")
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        response -> Log.d(TAG, "onCreate: " + response),
-                        throwable -> throwable.printStackTrace()
-                );
     }
 
     @Override
