@@ -1,4 +1,4 @@
-package com.mickamy.qiitaviewer;
+package com.mickamy.qiitaviewer.dto;
 
 import java.util.List;
 
