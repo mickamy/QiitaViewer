@@ -6,8 +6,8 @@ import android.widget.TextView;
 import com.airbnb.epoxy.EpoxyAttribute;
 import com.airbnb.epoxy.EpoxyModelClass;
 import com.airbnb.epoxy.EpoxyModelWithHolder;
-import com.mickamy.qiitaviewer.BaseEpoxyHolder;
 import com.mickamy.qiitaviewer.R;
+import com.mickamy.qiitaviewer.ui.base.BaseEpoxyHolder;
 import com.mickamy.qiitaviewer.util.TextFormatUtils;
 
 import org.threeten.bp.OffsetDateTime;

@@ -4,18 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.mickamy.qiitaviewer.R;
+import com.mickamy.qiitaviewer.ui.base.LoadableActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ViewerActivity extends AppCompatActivity {
+public class ViewerActivity extends LoadableActivity {
 
     private static final String KEY_URL = "url";
 
@@ -54,8 +54,13 @@ public class ViewerActivity extends AppCompatActivity {
         webView.loadUrl(getIntent().getStringExtra(KEY_URL));
     }
 
-    private void enableLoadingView(boolean loading) {
-        progressBar.setVisibility(loading ? View.VISIBLE : View.GONE);
-        webView.setVisibility(loading ? View.INVISIBLE : View.VISIBLE);
+    @Override
+    protected View getContentView() {
+        return webView;
+    }
+
+    @Override
+    protected View getLoadingView() {
+        return progressBar;
     }
 }

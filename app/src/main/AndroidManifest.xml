@@ -7,7 +7,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.result.SearchResultActivity" />
-        <activity android:name=".ui.viewer.ViewerActivity"></activity>
+        <activity
+            android:name=".ui.viewer.ViewerActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
